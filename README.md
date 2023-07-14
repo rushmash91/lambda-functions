@@ -4,7 +4,7 @@ This repository is a collection of AWS Lambda functions that are designed to hel
 
 ## List of Functions
 
-1. [React App Deployment: CodeCommit to S3](#react-app-deployment-codecommit-to-s3)
+1. [React App Deployment: CodeCommit to S3](#react-app-deployment-codecommit-to-s3)  (s3-publish-codecommit-trigger.py)
 
 ---
 

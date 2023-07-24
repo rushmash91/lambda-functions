@@ -4,7 +4,8 @@ This repository is a collection of AWS Lambda functions that are designed to hel
 
 ## List of Functions
 
-1. [React App Deployment: CodeCommit to S3](#react-app-deployment-codecommit-to-s3)  (s3-publish-codecommit-trigger.py)
+1. [React App Deployment: CodeCommit to S3](#react-app-deployment-codecommit-to-s3) (s3-publish-codecommit-trigger.py)
+2. [OpenAI API Integration Function](#openai-api-integration-function) (get-openai-poem.py)
 
 ---
 
@@ -26,6 +27,20 @@ Before using this function, make sure to set the following environment variables
 You can then deploy the function in your AWS Lambda service. Once the function is triggered, it will automatically delete all objects in the specified S3 bucket and then upload the new files from the `build` folder of the specified CodeCommit repository.
 
 Please note that this function only uploads files from the `build` directory of your repository and not the directory itself. The `build` prefix is also removed when the files are uploaded to the S3 bucket. This is perfect for a static website setup where all the build files need to reside at the root level of the hosting bucket.
+
+---
+
+### OpenAI API Integration Function
+
+This function integrates the OpenAI API to generate creative content based on prompts. It retrieves the OpenAI API key from environment variables, constructs the parameters and headers for the OpenAI API call, makes the request, and processes the response.
+
+#### How to use this function
+
+Before using this function, make sure to set the following environment variable in your Lambda function settings:
+
+- `OPENAI_API_KEY`: The key to authenticate with the OpenAI API.(Use parameter store with KMS)
+
+This function can be deployed in your AWS Lambda service. Once the function is triggered, it uses the OpenAI API to generate text based on a given prompt.
 
 ---
 
